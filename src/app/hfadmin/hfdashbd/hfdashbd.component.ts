@@ -153,7 +153,7 @@ perfomanceDetails(){
         })
     }
   } else {
-    return  swal.fire({ type: 'error',title: 'Oops...',text: 'Interval is not 7 or 30 days',footer: 'Please, make the necessary changes and try again.'});
+    return  swal.fire({ type: 'error',title: 'Oops...',text: 'Interval Should be 7 or 30 days',footer: 'Please, make the necessary changes and try again.'});
   }
   
   
