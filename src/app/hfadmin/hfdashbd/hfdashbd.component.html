@@ -15,8 +15,6 @@
                   </div>
                   <p class="card-category">Total Transaction Volume</p>
                   <h3 class="card-title">{{ total | currency:'GHS':'GHS ' }}</h3> -->
-                  <!--<h3 class="card-title" *ngIf="loading">loading ...</h3>-->
-
                     <app-spinner *ngIf="loading"></app-spinner>
                   <h3 class="card-title error">{{ loaderror }}</h3>
                 </div>
@@ -180,7 +178,8 @@
               <app-spinner *ngIf="loading" ></app-spinner>
             </div>
             <div class="chart">
-              <canvas id="performance"  width="400" height="120"></canvas>
+              <h4 *ngIf="periodchart.length === 0">No Data for Chart</h4>
+              <canvas id="details"  width="400" height="120"></canvas>
             </div>
           </div>
         </div>

@@ -8,6 +8,8 @@ export class ChartService {
   constructor(){}
 
   perfomanceChart(labels, amounts,canvasid){
+    console.log(canvasid);
+    
       return new Chart(canvasid, {
         type: 'line',
         data: {

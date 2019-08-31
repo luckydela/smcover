@@ -143,7 +143,11 @@ return this.http.post(this.live_Url+'/vanguard/api/managers/get_stickers', JSON.
   
 
   addStickers(data:any){
- return this.http.post(this.live_Url+'/vanguard/api//managers/add_stickers',JSON.stringify(data), this.options)
+    return this.http.post(this.live_Url+'/vanguard/api/managers/add_stickers',JSON.stringify(data), this.options)
+  }
+
+  gettransactionDetails(data){
+    return this.http.post(this.live_Url+ '/vanguard/api/managers/get_transactions_Period_Details',data, this.options)
   }
 
 /*---------------------- Customer section from main adminstrator level---------------------------*/
