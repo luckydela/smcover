@@ -92,6 +92,8 @@ generatetopagraphformByDate(){
 
     this.loading = true;
 
+
+
     this.service.gettransactionPeriod({email:this.ud.email,minDate:this.topperformstartdate,maxDate:this.topperformenddate})
       .subscribe(data => {
 
@@ -116,6 +118,61 @@ generatetopagraphformByDate(){
   }
   
 }
+
+
+perfomanceDetails(){
+
+  let minDate = new Date(this.topperformstartdate)
+  let maxDate = new Date(this.topperformenddate)
+
+  let mindays = minDate.getTime()/(1000 * 3600 * 24)
+  let maxdays = maxDate.getTime()/(1000 * 3600 * 24)
+
+  console.log(mithindays,maxdays);
+  
+
+  if (mindays != 7 || maxdays != 30 ) return  swal.fire({ type: 'error',title: 'Oops...',text: 'Interval is not 7 or 30 days',footer: 'Please, make the necessary changes and try again.'});
+
+
+  
+
+  if (this.topperformstartdate === undefined || this.topperformenddate === undefined) {
+
+    swal.fire({ type: 'error',title: 'Oops...',text: 'Start Date or End Date was not selected.',footer: 'Please, make the necessary changes and try again.'});
+  } else if(this.topperformstartdate > this.topperformenddate) { 
+
+    swal.fire({ type: 'error',title: 'Oops...',text: 'Start Date is more than End Date.',footer: 'Please, make the necessary changes and try again.'});
+  } else {
+
+    this.loading = true;
+
+    
+
+    this.service.gettransactionPeriod({email:this.ud.email,minDate:this.topperformstartdate,maxDate:this.topperformenddate})
+      .subscribe(data => {
+
+        this.loading = false;
+        let labels = [],counts=[],amounts=[];
+        data['Weekly top performing agents '].forEach(element => {
+          labels.push(element.agent_id);
+          counts.push(element.totalCount);
+          amounts.push(parseFloat(element.totalAmount.replace(/,/g,'')));
+        });
+      
+        this.charts = this.chartservice.perfomanceChart(labels,amounts,'performance');
+
+        this.topperformenddate = ''
+        this.topperformstartdate = ''
+
+      },error => {
+        this.loading = false;
+        swal.fire({ type: 'error',title: 'Oops...',text: error.message,footer: 'Please, make the necessary changes and try again.'});
+      })
+    
+  }
+  
+}
+
 
 
 

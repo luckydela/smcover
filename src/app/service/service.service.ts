@@ -10,8 +10,8 @@ export class ServiceService {
 
   //dummy_url: string ="http://localhost:8080/starlife/login";
     Base_Url: any ="http://192.168.2.116:8080";
-   //live_Url: any= "https://vanguard-api.herokuapp.com";
-   live_Url:any="https://9949c24d.ngrok.io";
+   live_Url: any= "https://vanguard-api.herokuapp.com";
+   //live_Url:any="https://9949c24d.ngrok.io";
   
 
 
@@ -141,6 +141,10 @@ return this.http.post(this.live_Url+'/vanguard/api/managers/get_stickers', JSON.
   }
 
   
+
+  addStickers(data:any){
+ return this.http.post(this.live_Url+'/vanguard/api//managers/add_stickers',JSON.stringify(data), this.options)
+  }
 
 /*---------------------- Customer section from main adminstrator level---------------------------*/
 

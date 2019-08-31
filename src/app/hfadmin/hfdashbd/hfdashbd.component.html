@@ -94,7 +94,7 @@
           <div class="row">
             <div class="col-md-9" >
               <div class="card">
-                <div class="card-header card-header-danger daterange">
+                <div class="card-header card-header-info daterange">
                   <h4 class="card-title">Transactional Graph for Weekly and Monthly</h4>
                   <div>
                     <label>From</label>
@@ -139,7 +139,7 @@
             
         <div class="col-md-3">
               <div class="card card-chart">
-                <div class="card-header card-header-danger">
+                <div class="card-header card-header-info">
                   <div class="ct-chart" id="completedTasksChart"></div>
                 </div>
                 <div class="card-body">
@@ -154,6 +154,38 @@
               </div>
             </div>
           </div>
+
+
+
+
+    <div class="row">
+      <div class="col-md-12" >
+        <div class="card">
+          <div class="card-header card-header-info daterange">
+            <h4 class="card-title">Graph for Daily Transactional Breakdown</h4>
+            <div>
+              <label>From</label>
+              <input type="date" name="topperformstartdate" [(ngModel)]="topperformstartdate"/>
+            </div>
+            <div>
+              <label>To</label>
+              <input type="date" name="topperformenddate" [(ngModel)]="topperformenddate"/>
+            </div>
+            <div>
+                <button class="btn btn-white generate" (click)="perfomanceDetails()">Generate</button>
+              </div>
+          </div>
+          <div class="card-body">
+            <div class="spinner">
+              <app-spinner *ngIf="loading" ></app-spinner>
+            </div>
+            <div class="chart">
+              <canvas id="performance"  width="400" height="120"></canvas>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
          <!-- <div class="row">
             
 

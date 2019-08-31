@@ -1,0 +1,15 @@
+.range-form {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.range {
+    padding-right: 50px;
+}
+.range input {
+    flex-grow: 1;
+}
+.range-btn {
+    display: flex;
+}
