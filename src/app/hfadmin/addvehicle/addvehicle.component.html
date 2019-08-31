@@ -1,0 +1,80 @@
+ <!-- End Navbar -->
+ <!-- <br><br><br><br><br>
+ <div class="content">
+    <div class="container-fluid">
+      <div class="row">
+
+        <div class="col-md-9">
+          <div class="card">
+            <div class="card-header card-header-warning">
+              <h4 class="card-title ">Add Vehicle with Model </h4>
+              <p class="card-category"> </p>
+            </div>
+            <div class="card-body">
+                <div class=" form-inline active-cyan active-cyan-2 md-form mt-0 search">
+                    <input class="form-control" type="text" placeholder="Search by ID" #query (keyup)="search(query.value)" aria-label="Search">
+                  </div>
+              <div class="table-responsive">
+               <table class="table">
+                  <thead class=" text-warning">
+                    <th>#</th>
+                    <th>Vehicle Make</th>
+                    <th> Vehicle </th>  
+                    <th>Date Created</th>
+                   
+                    
+                  </thead>
+                  <tbody>
+                      <tr *ngFor="let customer of searchdata ; let i=index;" >
+                          <td>{{ i + 1}}</td>
+                          <td>{{customer.Vehicle_make}}</td>
+                          <td>{{customer.Vehicle_Model}}</td>
+                          <td>{{customer.date_created}}</td>
+                         </tr>
+                    
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+          <button *ngIf="addvehiclebutton" type="submit" class="btn btn-info btn-warning " (click)="addVehicle()">Register Vehicle</button>
+
+        </div>
+      </div>
+
+
+<br><br>
+<div class="col-md-5" *ngIf="Addvehicle">
+    <div class="card">
+      <div class="card-header card-header-info">
+        <h4 class="card-title">Add Vehicle</h4>
+      </div>
+      <div class="card-body">
+        <form [formGroup]="addvehicleform">
+        
+           
+              <div class="form-group">
+                <label class="bmd-label-floating">Vehicle Make</label>
+                <input Style=" text-transform: uppercase;" type="text"  formControlName="vmake" class="form-control">
+              </div>
+            <br><br>
+              <div class="form-group">
+                <label class="bmd-label-floating">Vehicle Model</label>
+                <input type="text" Style=" text-transform: uppercase;" formControlName="vmodel" class="form-control">
+              </div>
+              <br>
+        <div class="col-md-5">
+           <button type="submit" class="btn btn-info  pull-right " (click)="addVehicle()">Register Vehicle</button>
+        </div>
+        </form>
+      </div>
+    </div>
+  </div>
+    
+
+
+    
+    </div>
+  </div> -->
+
+ 

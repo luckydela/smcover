@@ -1,0 +1,44 @@
+<div class="card">
+  <div class="card-header card-header-tabs card-header-info">
+    <h4 class="card-title">Agent Profile</h4>
+    <!--<p class="card-category">New Agents on 15th September, 2016</p>-->
+    <!--<button type="button" class="btn btn-sm btn-warning" (click)="Agentsmod()">Expand</button>-->
+  </div>
+  <div class="card-body table-responsive">
+    <table class="table table-hover">
+      <thead class="text-info">
+        <th>#</th>
+        <th>ID</th>
+        <th>First name</th>
+        <th>Last name</th>
+        <th>Phone</th>
+        <th>Date</th>
+        <th>Edit</th>
+        <th>Status</th>
+      </thead>
+      <tbody>
+        <tr>
+          <tr *ngFor="let agent of searchdata ; let i=index;">
+            <td>{{ i + 1}}</td>
+            <td>{{agent.id}}</td>
+            <td>{{agent.firstName}}</td>
+            <td>{{agent.lastName}}</td>
+            <td>{{agent.phone}}</td>
+        <td>{{agent.date_created}}</td> 
+        <td>
+            <button type="button" rel="tooltip" title="Edit Task" class="btn btn-sm btn-info ">
+              <i class="material-icons">edit</i>
+              Update
+            </button>
+          </td>  
+          <td>
+              <button type="button" rel="tooltip" title="Edit Task" class="btn btn-sm btn-info ">
+                <i class="material-icons"></i>
+                Status
+              </button>
+            </td>      
+        </tr>    
+      </tbody>
+    </table>
+  </div>
+</div>

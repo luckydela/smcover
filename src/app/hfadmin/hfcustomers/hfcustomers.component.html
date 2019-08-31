@@ -1,0 +1,66 @@
+ <!-- End Navbar -->
+ <br><br><br><br><br>
+ <div class="content">
+    <div class="container-fluid">
+      <div class="row">
+
+        <div class="col-md-12">
+          <div class="card">
+            <div class="card-header card-header-warning">
+              <h4 class="card-title ">Customer </h4>
+              <p class="card-category"> </p>
+            </div>
+            <div class="card-body">
+                <div class=" form-inline active-cyan active-cyan-2 md-form mt-0 search">
+                    <input class="form-control" type="text" placeholder="Search by ID" #query (keyup)="search(query.value)" aria-label="Search">
+                  </div>
+              <div class="table-responsive">
+               <table class="table">
+                  <thead class=" text-warning">
+                    <th>#</th>
+                    <th>Customer ID</th>
+                    <th>Agent ID</th>
+                    <th>Created By</th>
+                    <th>First name</th>
+                    <th>Last name</th>
+                    <th>Email</th>
+                    <th>Phone number</th>
+                    <th>Res. Address</th>
+                <!--<th>Post. Address</th>-->
+                    <th>Date Created</th>
+                    <th>Date Updated</th>
+                   
+                    
+                  </thead>
+                  <tbody>
+                      <tr *ngFor="let customer of searchdata ; let i=index;" >
+                          <td>{{ i + 1}}</td>
+                          <td>{{customer.client_id}}</td>
+                          <td>{{customer.agent_id}}</td>
+                          <td>{{customer.created_by}}</td>
+                          <td>{{customer.first_name}}</td>
+                          <td>{{customer.last_name}}</td>
+                          <td>{{customer.email}}</td>
+                          <td>{{customer.phone}}</td>
+                          <td>{{customer.res_address}}</td>
+                      <!--<td>{{customer.postal_address}}</td>-->
+                          <td>{{customer.date_created}}</td>
+                          <td>{{customer.date_updated}}</td>
+
+
+                    
+                         </tr>
+                    
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    
+    </div>
+  </div>
+
+ 

@@ -1,0 +1,221 @@
+ <!-- End Navbar -->
+ <br><br><br><br><br>
+ <div class="content">
+    <div class="container-fluid">
+      <div class="row">
+
+        <div class="col-md-12">
+          <div class="card">
+            <div class="card-header card-header-warning">
+              <h4 class="card-title ">Quotes Portal</h4>
+              <p class="card-category"> Records of Quotes</p>
+             
+            </div>
+            <div class="card-body">
+                <div class=" form-inline active-cyan active-cyan-2 md-form mt-0 search">
+                   <input class="form-control" type="text" placeholder="Search by ID" #query (keyup)="search(query.value)" aria-label="Search">
+               </div>
+              <div class="table-responsive">
+                <table class="table" >
+                   
+                  <thead class=" text-warning">
+                      <tr align="center">
+                          <th>#</th>
+                          <th>Invoice ID</th>
+                          <th>Agent ID</th>
+                          <th>Client</th>
+                          <th>Fullname</th>
+                          <th>Cost fo Car</th>
+                          <th>Insurance Type</th>
+                          <th>Cost of Insurance</th>
+                          <th>rate</th>
+                          <th>Status</th>
+                          <th>Approve/Decline</th>
+                      </tr>
+                  </thead>
+                  <tbody>
+                      <tr *ngFor="let quote of searchdata;let i = index;" [ngStyle]="{'color': quote.status == 'decline' ? '#dc3545': quote.status == 'pending' ? '#E86100': ''}" class="text-center">
+                          <td>{{ i + 1}}</td>
+                          <td>{{quote.invoice_no}}</td>
+                          <td>{{quote.agent_id}}</td>
+                          <td>{{quote.status_of_client}}</td>
+                          <td>{{quote.client_fullName}}</td>
+                          <td>{{quote.cost_of_car}}</td>
+                          <td>{{quote.insurance_type}}</td>
+                          <td>{{quote.cost_of_insurance}}</td>
+                          <td>{{quote.rate}}</td>
+                         <td>{{quote.status}}</td>
+                    
+                          <td>
+                            
+                              <button type="button"  class="btn btn-info"  *ngIf="quote.status != 'active'" (click)="approveordecline(quote,'active')">approve</button>
+                              <button type="button"  class="btn btn-danger" *ngIf="quote.status != 'decline'" (click)="approveordecline(quote, 'decline')">decline</button>
+                              <button type="button"  class="btn btn-warning" *ngIf="quote.status != 'pending'" (click)="approveordecline(quote, 'pending')">pending</button>
+                    
+                            
+                          </td>
+                    
+                         </tr>
+                    
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      
+
+
+     <!-- <div class="row">
+
+          <div class="col-lg-6 col-md-12">
+              <div class="card">
+                <div class="card-header card-header-tabs card-header-danger">
+                  <h4 class="card-title">Agent Sales Updates</h4>
+                  <p class="card-category">New Agents on 15th September, 2016</p>
+                </div>
+                <div class="card-body table-responsive">
+                  <table class="table table-hover">
+                    <thead class="text-danger">
+                      <th>ID</th>
+                      <th>Name</th>
+                      <th>Amount(GHS)</th>
+                      <th>Country</th>
+                      <th>Edit</th>
+                      <th>Status</th>
+                    </thead>
+                    <tbody>
+                      <tr *ngFor="let quote of searchdata;let i = index;" >
+                        <td>1</td>
+                        <td>Dakota Rice</td>
+                        <td>36,738</td>
+                        <td>Niger</td>
+                        <td>
+                            <button type="button" rel="tooltip" title="Edit Task" class="btn btn-danger btn-link btn-sm">
+                                <i class="material-icons">edit</i>
+                              </button>
+                        </td>
+                        <td>
+                            <button type="button" rel="tooltip" title="Edit Task" class="btn btn-sm btn-danger ">
+                                <i class="material-icons">add</i>
+                                Pending
+                              </button>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>2</td>
+                        <td>Minerva Hooper</td>
+                        <td>23,789</td>
+                        <td>Curaçao</td>
+                        <td>
+                            <button type="button" rel="tooltip" title="Edit Task" class="btn btn-danger btn-link btn-sm">
+                                <i class="material-icons">edit</i>
+                              </button>
+                        </td>
+                        <td>
+                            <button type="button" rel="tooltip" title="Edit Task" class="btn btn-sm btn-danger ">
+                                <i class="material-icons">add</i>
+                                decline
+                              </button>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>3</td>
+                        <td>Sage Rodriguez</td>
+                        <td>56,142</td>
+                        <td>Netherlands</td>
+                        <td>
+                            <button type="button" rel="tooltip" title="Edit Task" class="btn btn-danger btn-link btn-sm">
+                                <i class="material-icons">edit</i>
+                              </button>
+                        </td>
+                        <td>
+                            <button type="button" rel="tooltip" title="Edit Task" class="btn btn-sm btn-danger ">
+                                <i class="material-icons">add</i>
+                                Active
+                              </button>
+                        </td>
+        
+                      </tr>
+                         
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>-->
+        
+        
+            
+        
+           <!-- <div class="col-lg-6 col-md-12">
+              <div class="card">
+                <div class="card-header card-header-info">
+                  <h4 class="card-title">Customer Sticker Sales</h4>
+                  <p class="card-category">New Customer on 15th September, 2016</p>
+                </div>
+                <div class="card-body table-responsive">
+                  <table class="table table-hover">
+                    <thead class="text-info">
+                      <th>ID</th>
+                      <th>Client ID</th>
+                      <th>Policy No</th>
+                      <th>Name</th>
+                      <th>Time</th>
+                      <th>Amount(GHS)</th>
+                      <th>Edit</th>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td>1</td>
+                        <td>VAN-0023</td>
+                        <td>045839</td>
+                        <td>Dakota Rice</td>
+                        <td>23:11</td>
+                        <td>36.00</td>
+                        <td>
+                            <button type="button" rel="tooltip" title="Edit Task" class="btn btn-info btn-link btn-sm">
+                                <i class="material-icons">edit</i>
+                              </button>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>2</td>
+                        <td>VAN-0341</td>
+                        <td>234567</td>
+                        <td>Minerva Hooper</td>
+                        <td>13:11</td>
+                        <td>23.00</td>
+                        <td>
+                            <button type="button" rel="tooltip" title="Edit Task" class="btn btn-info btn-link btn-sm">
+                                <i class="material-icons">edit</i>
+                              </button>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>3</td>
+                        <td>VAN-4576</td>
+                        <td>234567</td>
+                        <td>Sage Rodriguez</td>
+                        <td>11:51</td>
+                        <td>56.00</td>
+                        <td>
+                            <button type="button" rel="tooltip" title="Edit Task" class="btn btn-info btn-link btn-sm">
+                                <i class="material-icons">edit</i>
+                              </button>
+                        </td>
+                      </tr>
+                      
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+        
+            </div>-->
+
+    </div>
+  </div>
+
+ 

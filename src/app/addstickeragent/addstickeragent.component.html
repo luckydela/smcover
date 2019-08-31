@@ -1,0 +1,103 @@
+ <!-- End Navbar -->
+  <br><br><br><br><br>
+ <div class="content">
+    <div class="container-fluid">
+      <div class="row">
+
+        <div class="col-md-9">
+          <div class="card">
+            <div class="card-header card-header-warning">
+              <h4 class="card-title ">Register Sticker for Agents </h4>
+              <p class="card-category"> </p>
+            </div>
+            <div class="card-body">
+                <div class=" form-inline active-cyan active-cyan-2 md-form mt-0 search">
+                    <!--<input class="form-control" type="text" placeholder="Search by ID" #query (keyup)="search(query.value)" aria-label="Search">-->
+                  </div>
+              <div class="table-responsive">
+               <table class="table">
+                  <thead class=" text-warning">
+                    <th>#</th>
+                    <th>Sticker Range ID</th>
+                    <th> Agent ID</th>
+                    <th>Min Range</th>
+                    <th>Current Sticker</th>
+                    <th>  manager_email </th>
+                    <th>Status</th>  
+                    <th>Date Created</th>
+                    <th>Date Updated</th>
+                   <th>Add Range</th>
+                   
+                    
+                  </thead>
+                  <tbody> 
+                    <tr *ngFor="let stickerassign of agentsticker ; let i=index;" >
+                        <!--<tr>-->
+                            <!--<td>1</td>-->
+                         <td>{{ i + 1}}</td>
+                          <td>{{stickerassign.stickerRange_id}}</td>
+                          <td>{{stickerassign.agent_id}}</td>
+                          <td>{{stickerassign.minimum_range}}</td>
+                          <td>{{stickerassign.current_sticker}}</td>
+                          <td>{{stickerassign.manager_email}}</td>
+                          <td>{{stickerassign.status}}</td>
+                          <td>{{stickerassign.created_at}}</td>
+                          <td>{{stickerassign.updated_at}}</td>
+                          <td>
+                            <button *ngIf="assignrange" type="button" class="btn btn-sm btn-round btn-warning " (click)="assignstickerno(inddata.agent_id)">Assign Range</button>
+                          </td>
+                      </tr>
+
+                         
+                    
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+
+<br><br>
+<div class="col-md-3" *ngIf="assignstickerrange">
+    <div class="card">
+      <div class="card-header card-header-warning">
+        <h4 class="card-title">Assign Sticker to Agents</h4>
+      </div>
+      <div class="card-body">
+        <form [formGroup]="addstickerform" *ngFor="let stickerassign of agentsticker ;  let i=index; ">
+        
+              <div class="form-group">
+                <label class="bmd-label-floating">minimum range</label>
+                <input Style=" text-transform: uppercase;" type="number"  formControlName="stsmnm" class="form-control">
+              </div>
+            <br><br>
+            <div class="form-group">
+                <label class="bmd-label-floating">maximum range</label>
+                <input Style=" text-transform: uppercase;" type="number"  formControlName="stsmxm" class="form-control">
+              </div>
+            <br><br>
+              <div class="form-group">
+                <label class="bmd-label-floating">Agent ID</label>
+                <input  Style=" text-transform: uppercase;"  value="{{stickerassign.agent_id}}" class="form-control" readonly>
+              </div>
+              <br>
+        <div class="col-md-5">
+           <button type="submit" class="btn btn-warning btn-sm btn-round  pull-right " (click)="addsticker()">Assign Sticker</button>
+        </div>
+        </form>
+      </div>
+    </div>
+  </div>
+      </div>
+
+
+    
+
+
+    
+    </div>
+  </div> 
+
+ 

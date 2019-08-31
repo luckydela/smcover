@@ -1,0 +1,26 @@
+.daterange {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.daterange label {
+    color: #ffffff;
+    margin-right: 10px;
+}
+.daterange input {
+    background: #EDF2F7;
+    color:  #a0aec0;
+    border: none;
+    border-radius: 5px;
+    padding: 5px;
+}
+.generate {
+    border-radius: 5px;
+    color: #06B0C5;
+    font-weight: bold;
+}
+.spinner {
+    position: absolute;
+    top: 40%;
+    left: 40%;
+}

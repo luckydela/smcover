@@ -1,0 +1,208 @@
+ <!-- End Navbar -->
+ <br><br><br><br><br>
+ <div class="content">
+    <div class="container-fluid">
+      <div class="row">
+
+        <div class="col-md-12">
+          <div class="card">
+            <div class="card-header card-header-warning">
+              <h4 class="card-title ">Agent</h4>
+              <p class="card-category"> Records of Agents</p>
+            </div>
+            <div class="card-body">
+                <div class=" form-inline active-cyan active-cyan-2 md-form mt-0 search">
+                    <input class="form-control" type="text" placeholder="Search by Anything" #query (keyup)="search(query.value)" aria-label="Search">
+                  </div>
+              <div class="table-responsive">
+                <table class="table">
+                  <thead class=" text-warning">
+                    <th>#</th>
+                    <th>ID</th>
+                    <th>First name</th>
+                    <th>Last name</th>
+                    <th>Phone</th>
+                    <th>Email</th>
+                    <th>Date-Time</th>
+                    <th>Edit</th>
+                    <th>Status</th>
+                  
+                  </thead>
+                  <tbody>
+                      <tr *ngFor="let agent of searchdata ; let i=index;" >
+                          <td>{{ i + 1}}</td>
+                          <td>{{agent.id}}</td>
+                          <td>{{agent.firstName}}</td>
+                          <td>{{agent.lastName}}</td>
+                          <td>{{agent.phone}}</td>
+                          <td>{{agent.email}}</td>
+                          <td>{{agent.date_created}}</td>
+                          <td>
+                            <button type="button" rel="tooltip" title="Edit Task" class="btn btn-sm btn-warning ">
+                              <i class="material-icons">edit</i>
+                              Update
+                            </button>
+                          </td>  
+                          <td>
+                              <button type="button" rel="tooltip" title="Edit Task" class="btn btn-sm btn-info ">
+                                <i class="material-icons"></i>
+                                Status
+                              </button>
+                            </td>   
+                         </tr>
+                    
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      
+
+
+      <!--<div class="row">
+
+          <div class="col-lg-6 col-md-12">
+              <div class="card">
+                <div class="card-header card-header-tabs card-header-primary">
+                  <h4 class="card-title">Agents Sales Updates</h4>
+                  <p class="card-category">New Agents on 15th September, 2016</p>
+                </div>
+                <div class="card-body table-responsive">
+                  <table class="table table-hover">
+                    <thead class="text-warning">
+                      <th>ID</th>
+                      <th>Name</th>
+                      <th>Amount Payed</th>
+                      <th>Country</th>
+                      <th>Edit</th>
+                      <th>Status</th>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td>1</td>
+                        <td>Dakota Rice</td>
+                        <td>$36,738</td>
+                        <td>Niger</td>
+                        <td>
+                            <button type="button" rel="tooltip" title="Edit Task" class="btn btn-primary btn-link btn-sm">
+                                <i class="material-icons">edit</i>
+                              </button>
+                        </td>
+                        <td>
+                            <button type="button" rel="tooltip" title="Edit Task" class="btn btn-sm btn-primary ">
+                                <i class="material-icons">add</i>
+                                Pending
+                              </button>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>2</td>
+                        <td>Minerva Hooper</td>
+                        <td>$23,789</td>
+                        <td>Curaçao</td>
+                        <td>
+                            <button type="button" rel="tooltip" title="Edit Task" class="btn btn-primary btn-link btn-sm">
+                                <i class="material-icons">edit</i>
+                              </button>
+                        </td>
+                        <td>
+                            <button type="button" rel="tooltip" title="Edit Task" class="btn btn-sm btn-primary ">
+                                <i class="material-icons">add</i>
+                                decline
+                              </button>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>3</td>
+                        <td>Sage Rodriguez</td>
+                        <td>$56,142</td>
+                        <td>Netherlands</td>
+                        <td>
+                            <button type="button" rel="tooltip" title="Edit Task" class="btn btn-primary btn-link btn-sm">
+                                <i class="material-icons">edit</i>
+                              </button>
+                        </td>
+                        <td>
+                            <button type="button" rel="tooltip" title="Edit Task" class="btn btn-sm btn-primary ">
+                                <i class="material-icons">add</i>
+                                Active
+                              </button>
+                        </td>
+        
+                      </tr>
+                         
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+        
+        
+            
+        
+            <div class="col-lg-6 col-md-12">
+              <div class="card">
+                <div class="card-header card-header-warning">
+                  <h4 class="card-title">Customer Sticker Sales</h4>
+                  <p class="card-category">New Customer on 15th September, 2016</p>
+                </div>
+                <div class="card-body table-responsive">
+                  <table class="table table-hover">
+                    <thead class="text-warning">
+                      <th>ID</th>
+                      <th>Name</th>
+                      <th>Salary</th>
+                      <th>Country</th>
+                      <th>Edit</th>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td>1</td>
+                        <td>Dakota Rice</td>
+                        <td>$36,738</td>
+                        <td>Niger</td>
+                        <td>
+                            <button type="button" rel="tooltip" title="Edit Task" class="btn btn-warning btn-link btn-sm">
+                                <i class="material-icons">edit</i>
+                              </button>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>2</td>
+                        <td>Minerva Hooper</td>
+                        <td>$23,789</td>
+                        <td>Curaçao</td>
+                        <td>
+                            <button type="button" rel="tooltip" title="Edit Task" class="btn btn-warning btn-link btn-sm">
+                                <i class="material-icons">edit</i>
+                              </button>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>3</td>
+                        <td>Sage Rodriguez</td>
+                        <td>$56,142</td>
+                        <td>Netherlands</td>
+                        <td>
+                            <button type="button" rel="tooltip" title="Edit Task" class="btn btn-warning btn-link btn-sm">
+                                <i class="material-icons">edit</i>
+                              </button>
+                        </td>
+                      </tr>
+                      
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+            </div>-->
+      
+
+
+    </div>
+  </div>
+
+ 

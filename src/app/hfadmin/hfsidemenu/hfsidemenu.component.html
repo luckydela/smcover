@@ -1,0 +1,99 @@
+<div class="wrapper ">
+  <!--sideNav here-->
+    <div class="main-panel">
+      <!-- Navbar -->
+     <!-- <app-topnav></app-topnav>-->
+
+<div class="sidebar" data-color="purple" data-background-color="white" data-image="assets/img/sidebar-1.jpg">
+<!--
+  Tip 1: You can change the color of the sidebar using: data-color="purple | azure | green | orange | danger"
+
+  Tip 2: you can also add an image using data-image tag
+-->
+<div class="logo">
+  <a href="http://www.smartcover.com" class="simple-text logo-normal">
+    <img Style="height:55px; width: 160px;" src="assets/img/smc.png" alt="">
+  </a>
+</div>
+<div class="sidebar-wrapper">
+  <ul class="nav">
+    <li class="nav-item active ">
+      <a class="nav-link" (click)="maindasbd()">
+        <i class="material-icons">dashboard</i>
+        <p>Dashboard</p>
+      </a>
+    </li>
+    <li class="nav-item ">
+      <a class="nav-link" (click)="userprofile()">
+        <i class="material-icons">person</i>
+        <p>User Profile</p>
+      </a>
+    </li>
+    <li class="nav-item ">
+      <a class="nav-link" (click)="addstickerid()">
+        <i class="material-icons">add_to_queue</i>
+        <p>Add Sticker ID</p>
+      </a>
+    </li>
+
+    <li class="nav-item ">
+      <a class="nav-link" (click)="customermod()">
+        <i class="material-icons">content_paste</i>
+        <p>Customer</p>
+      </a>
+    </li>
+    <li class="nav-item ">
+      <a class="nav-link" (click)="custransact()">
+        <i class="material-icons">swap_horiz</i>
+        <p>Customer Transactions</p>
+      </a>
+    </li>
+    <li class="nav-item ">
+      <a class="nav-link" (click)="managersmod()">
+        <i class="material-icons">view_list</i>
+        <p>All Managers</p>
+      </a>
+    </li>
+    <li class="nav-item ">
+      <a class="nav-link" (click)="Addnewvehicle()">
+        <i class="material-icons">directions_car</i>
+        <p>Add New Vehicle</p>
+      </a>
+    </li>
+   <!-- <li class="nav-item ">
+      <a class="nav-link" (click)="quotesmod()">
+        <i class="material-icons">bubble_chart</i>
+        <p>Quotes</p>
+      </a>
+    </li>-->
+    
+   <!-- <li class="nav-item ">
+      <a class="nav-link" >
+        <i class="material-icons">location_ons</i>
+        <p>Agent Location Tracker</p>
+      </a>
+    </li>-->
+    <li class="nav-item ">
+      <a class="nav-link" (click)="notification()" >
+        <i class="material-icons" >notifications</i>
+        <p>Notifications</p>
+      </a>
+    </li>
+    <li class="nav-item ">
+      <a class="nav-link" (click)="supportmail()" >
+        <i class="material-icons">email</i>
+        <p>ECL developer Support</p>
+      </a>
+    </li>
+   <!-- <li class="nav-item active-pro ">
+      <a class="nav-link" >
+        <i class="material-icons">unarchive</i>
+        <p>Upgrade to PRO</p>
+      </a>
+    </li>-->
+  </ul>
+</div>
+</div>
+<app-hftopnav></app-hftopnav>
+
+<router-outlet></router-outlet>

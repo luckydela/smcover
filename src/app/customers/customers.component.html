@@ -1,0 +1,209 @@
+ <!-- End Navbar -->
+ <br><br><br><br><br>
+ <div class="content">
+    <div class="container-fluid">
+      <div class="row">
+
+        <div class="col-md-12">
+          <div class="card">
+            <div class="card-header card-header-warning">
+              <h4 class="card-title ">Customer </h4>
+              <p class="card-category"> </p>
+            </div>
+            <div class="card-body">
+                <div class=" form-inline active-cyan active-cyan-2 md-form mt-0 search">
+                    <input class="form-control" type="text" placeholder="Search by ID" #query (keyup)="search(query.value)" aria-label="Search">
+                  </div>
+              <div class="table-responsive">
+               <table class="table">
+                  <thead class=" text-warning">
+                    <th>#</th>
+                    <th>Customer ID</th>
+                    <th>Agent ID</th>
+                    <th>Created By</th>
+                    <th>First name</th>
+                    <th>Last name</th>
+                    <th>Email</th>
+                    <th>Phone number</th>
+                    <th>Res. Address</th>
+                    <th>Post. Address</th>
+                    <th>Date Created</th>
+                    <th>Date Updated</th>
+                   
+                    
+                  </thead>
+                  <tbody>
+                      <tr *ngFor="let customer of searchdata ; let i=index;" >
+                          <td>{{ i + 1}}</td>
+                          <td>{{customer.client_id}}</td>
+                          <td>{{customer.agent_id}}</td>
+                          <td>{{customer.created_by}}</td>
+                          <td>{{customer.first_name}}</td>
+                          <td>{{customer.last_name}}</td>
+                          <td>{{customer.email}}</td>
+                          <td>{{customer.phone}}</td>
+                          <td>{{customer.res_address}}</td>
+                          <td>{{customer.postal_address}}</td>
+                          <td>{{customer.date_created}}</td>
+                          <td>{{customer.date_updated}}</td>
+
+
+                    
+                         </tr>
+                    
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      
+
+
+  <!--    <div class="row">
+
+          <div class="col-lg-6 col-md-12">
+              <div class="card">
+                <div class="card-header card-header-tabs card-header-danger">
+                  <h4 class="card-title">Agents Sales Updates</h4>
+                  <p class="card-category">New Agents on 15th September, 2016</p>
+                </div>
+                <div class="card-body table-responsive">
+                  <table class="table table-hover">
+                    <thead class="text-danger">
+                      <th>ID</th>
+                      <th>Name</th>
+                      <th>Amount Payed</th>
+                      <th>Country</th>
+                      <th>Edit</th>
+                      <th>Status</th>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td>1</td>
+                        <td>Dakota Rice</td>
+                        <td>$36,738</td>
+                        <td>Niger</td>
+                        <td>
+                            <button type="button" rel="tooltip" title="Edit Task" class="btn btn-danger btn-link btn-sm">
+                                <i class="material-icons">edit</i>
+                              </button>
+                        </td>
+                        <td>
+                            <button type="button" rel="tooltip" title="Edit Task" class="btn btn-sm btn-danger ">
+                                <i class="material-icons">add</i>
+                                Pending
+                              </button>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>2</td>
+                        <td>Minerva Hooper</td>
+                        <td>$23,789</td>
+                        <td>Curaçao</td>
+                        <td>
+                            <button type="button" rel="tooltip" title="Edit Task" class="btn btn-danger btn-link btn-sm">
+                                <i class="material-icons">edit</i>
+                              </button>
+                        </td>
+                        <td>
+                            <button type="button" rel="tooltip" title="Edit Task" class="btn btn-sm btn-danger ">
+                                <i class="material-icons">add</i>
+                                decline
+                              </button>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>3</td>
+                        <td>Sage Rodriguez</td>
+                        <td>$56,142</td>
+                        <td>Netherlands</td>
+                        <td>
+                            <button type="button" rel="tooltip" title="Edit Task" class="btn btn-danger btn-link btn-sm">
+                                <i class="material-icons">edit</i>
+                              </button>
+                        </td>
+                        <td>
+                            <button type="button" rel="tooltip" title="Edit Task" class="btn btn-sm btn-danger ">
+                                <i class="material-icons">add</i>
+                                Active
+                              </button>
+                        </td>
+        
+                      </tr>
+                         
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+        
+        
+            
+        
+            <div class="col-lg-6 col-md-12">
+              <div class="card">
+                <div class="card-header card-header-warning">
+                  <h4 class="card-title">Customer Sticker Sales</h4>
+                  <p class="card-category">New Customer on 15th September, 2016</p>
+                </div>
+                <div class="card-body table-responsive">
+                  <table class="table table-hover">
+                    <thead class="text-warning">
+                      <th>ID</th>
+                      <th>Name</th>
+                      <th>Salary</th>
+                      <th>Country</th>
+                      <th>Edit</th>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td>1</td>
+                        <td>Dakota Rice</td>
+                        <td>$36,738</td>
+                        <td>Niger</td>
+                        <td>
+                            <button type="button" rel="tooltip" title="Edit Task" class="btn btn-warning btn-link btn-sm">
+                                <i class="material-icons">edit</i>
+                              </button>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>2</td>
+                        <td>Minerva Hooper</td>
+                        <td>$23,789</td>
+                        <td>Curaçao</td>
+                        <td>
+                            <button type="button" rel="tooltip" title="Edit Task" class="btn btn-warning btn-link btn-sm">
+                                <i class="material-icons">edit</i>
+                              </button>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>3</td>
+                        <td>Sage Rodriguez</td>
+                        <td>$56,142</td>
+                        <td>Netherlands</td>
+                        <td>
+                            <button type="button" rel="tooltip" title="Edit Task" class="btn btn-warning btn-link btn-sm">
+                                <i class="material-icons">edit</i>
+                              </button>
+                        </td>
+                      </tr>
+                      
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+        
+            </div>-->
+      
+
+
+    </div>
+  </div>
+
+ 

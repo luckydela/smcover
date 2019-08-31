@@ -1,0 +1,79 @@
+ <!-- End Navbar -->
+ <br><br><br><br><br>
+ <div class="content">
+    <div class="container-fluid">
+
+
+       
+           
+           <app-agenttotal></app-agenttotal> 
+           
+          
+
+      <div class="row">
+
+        <div class="col-md-12">
+          <div class="card">
+            <div class="card-header card-header-danger">
+              <h4 class="card-title ">Transactions</h4>
+              <p class="card-category"> Records of Transactions done by agents</p>
+              
+
+            </div>
+            <div class="card-body">
+              <div class=" form-inline active-cyan active-cyan-2 md-form mt-0 search">
+                <input class="form-control" type="text" placeholder="Search by ID" #query (keyup)="search(query.value)" aria-label="Search">
+              </div>
+              <div class="table-responsive">
+                <table class="table" >
+                   
+                  <thead class=" text-danger">
+                      <tr align="center">
+                          <th>#</th>
+                          <th>Transaction ID</th>
+                          <th>Invoice No.</th>
+                          <th>Agent ID</th>
+                          <th>Client ID</th>
+                          <th>Amount</th>
+                          <th>Transaction Type</th>
+                          <!--<th>Sticker ID</th>-->
+                          <!--<th>Checkout ID</th>-->
+                          <!--<th>Sales Invoice ID</th>-->
+                          <!--<th>Mobile Number</th>-->
+                          <th>Email</th>
+                          <th>Status</th>
+                          <th>Date of Deposit</th>
+                          
+                      </tr>
+                  </thead>
+                  <tbody>
+                      <tr *ngFor="let transact of searchdata;let i = index;" class="text-center">
+                          <td>{{ i + 1}}</td>
+                          <td>{{transact.transaction_id}}</td>
+                          <td>{{transact.invoice_no}}</td>
+                          <td>{{transact.agent_id}}</td>
+                          <td>{{transact.client_id}}</td>
+                          <td>{{transact.amount}}</td>
+                          <td>{{transact.transaction_type}}</td>
+                          <!--<td>{{transact.sticker_serial_no}}</td>
+                          <td>{{transact.CheckoutId}}</td>
+                         <td>{{transact.SalesInvoiceId}}</td>-->
+                         <!--<td>{{transact.mobile_no}}</td>-->
+                         <td>{{transact.email}}</td>
+                         <td>{{transact.status}}</td>
+                         <td>{{transact.date_on_deposit}}</td>
+                         </tr>
+                    
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+ 
+    </div>
+  </div>
+
+ 
