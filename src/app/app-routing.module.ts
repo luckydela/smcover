@@ -64,10 +64,6 @@ const routes: Routes = [
 
     {path: 'transchart', component: TranschartComponent},
 
-
-
-
-
     {path:'hfdsbd' , component: HfdashbdComponent},
     {path:'hfprofile', component: HfprofileComponent},
     {path:'managers',component:ManagertblComponent},

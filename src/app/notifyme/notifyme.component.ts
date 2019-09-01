@@ -19,10 +19,7 @@ export class NotifymeComponent implements OnInit {
     this.sendmessageform = this.formBuilder.group({
       title: new FormControl('',[Validators.required]),
       message: new FormControl('', [Validators.required]),
-      channel: new FormControl('', [Validators.required]),
       activity: new FormControl('', [Validators.required])
-
-
     })
    }
 
@@ -30,8 +27,39 @@ export class NotifymeComponent implements OnInit {
   }
 
 
-  sendmessage(){
-    console.log(this.sendmessageform);
+  sendmessage(){ 
+    if (!this.sendmessageform.valid) return swal.fire({type: 'error',title: 'Ooops ...',text: 'Some form items are item', footer:'Please, make the necessary changes and try again'})   
+    let message = {
+      to : this.service.notifyBucket,
+      content_available: true,
+      notification: { 
+        title: this.sendmessageform.value.title,
+        body: this.sendmessageform.value.message 
+      }, 
+      data: {
+        activity:this.sendmessageform.value.activity
+      }
+    }
+
+    swal.showLoading()
+    this.service.sendNotification(message).subscribe(data => {
+
+      if (data['message_id']) {
+        swal.fire({ type: 'success',title: 'Success',text: 'Notification has been sent successfully'});
+      
+      
+        this.sendmessageform = this.formBuilder.group({
+          title: new FormControl('',[Validators.required]),
+          message: new FormControl('', [Validators.required]),
+          activity: new FormControl('', [Validators.required])
+        })
+      } else {
+        swal.fire({ type: 'error',title: 'Oops...',text: 'Notification sending failed.', footer: 'Please try again.'});
+      }
+    }, error => {
+      swal.hideLoading()
+      swal.fire({ type: 'error',title: 'Oops...',text: error.message, footer: 'Please, make the necessary changes and try again.'});
+    })
     
   }
 

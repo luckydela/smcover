@@ -60,25 +60,40 @@ generatetopagraphformByDate(){
     this.loading = true;
 
  
-    this.service.gettransactionPeriod({email:this.ud.email,minDate:this.topperformstartdate,maxDate:this.topperformenddate,duration:"months", role:this.ud.role})
+    this.service.getTopPerformingAgent({email:this.ud.email,minDate:this.topperformstartdate,maxDate:this.topperformenddate,duration:"months", role:this.ud.role})
       .subscribe(data => {
+        console.log(data);
         this.loading = false;
+        if(data['responseCode'] === "000"){
+          if (data['responseData'] === null) return swal.fire({type:'error',title:'Ooops ...',text:'No records found for the selection'})
+
+
+
+          // this.charts = this.chartservice.perfomanceChart(labels,amounts,'performance');
+          this.topperformenddate = ''
+          this.topperformstartdate = ''
+        } else {
+          swal.fire({ 
+            type: 'error',
+            title: 'Ooops...',
+            text: data['responseMessage']
+          });
+        }
+        
         // let labels = [],counts=[],amounts=[];
         // data['Weekly top performing agents '].forEach(element => {
         //   labels.push(element.agent_id);
         //   counts.push(element.totalCount);
         //   amounts.push(parseFloat(element.totalAmount.replace(/,/g,'')));
         // });
-        swal.fire({ 
-          type: 'success',
-          title: `GHC ${data['responseData'][0]['total']}`,
-          text: `Accrued amount from ${this.topperformstartdate} to ${this.topperformenddate}`
-        });
+        // swal.fire({ 
+        //   type: 'success',
+        //   title: `GHC ${data['responseData'][0]['total']}`,
+        //   text: `Accrued amount from ${this.topperformstartdate} to ${this.topperformenddate}`
+        // });
 
         // this.charts = this.chartservice.perfomanceChart(labels,amounts,'performance');
 
-        this.topperformenddate = ''
-        this.topperformstartdate = ''
 
       },error => {
         this.loading = false;

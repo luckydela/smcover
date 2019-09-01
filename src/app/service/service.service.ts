@@ -11,6 +11,8 @@ export class ServiceService {
   //dummy_url: string ="http://localhost:8080/starlife/login";
     Base_Url: any ="http://192.168.2.116:8080";
    live_Url: any= "https://vanguard-api.herokuapp.com";
+   notifyBucket: any = "/topics/com.ecl.smartcoveragent";
+   notifyUrl: any = 'https://fcm.googleapis.com/fcm/send';
    //live_Url:any="https://9949c24d.ngrok.io";
   
 
@@ -27,10 +29,21 @@ export class ServiceService {
    .set("Acces-Control-Allow-Methods", "GET, POST, PATCH, PUT, DELETE, OPTIONS")
    .set("Acces-Control-Allow-Headers", "Origin, Content-Type, Cookies");
 
+   private smshttpHeaders = new HttpHeaders()
+   .set('Content-Type', 'application/json')
+   .set('Access-Control-Allow-Origin', '*')
+   .set('Authorization', 'key=AIzaSyBlTd4JoSMbrs8W5eeRESJ5_TMFIHrgnBw')
+
+   .set("Acces-Control-Allow-Methods", "GET, POST, PATCH, PUT, DELETE, OPTIONS")
+   .set("Acces-Control-Allow-Headers", "Origin, Content-Type, Cookies");
+
    private options = {
     headers: this.httpHeaders
-  };
+   };
 
+   private smsoptions = {
+    headers: this.smshttpHeaders
+   };
 
 
 
@@ -149,6 +162,15 @@ return this.http.post(this.live_Url+'/vanguard/api/managers/get_stickers', JSON.
   gettransactionDetails(data){
     return this.http.post(this.live_Url+ '/vanguard/api/managers/get_transactions_Period_Details',data, this.options)
   }
+
+  getTopPerformingAgent(data:any){
+    return this.http.post(this.live_Url+ '/vanguard/api/managers/get_topPerformingAgents',data, this.options)
+  }
+
+  sendNotification(data:any){
+    return this.http.post(this.notifyUrl,data,this.smsoptions)
+  }
+  
 
 /*---------------------- Customer section from main adminstrator level---------------------------*/
 

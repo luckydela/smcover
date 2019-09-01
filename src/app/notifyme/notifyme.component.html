@@ -1,70 +1,70 @@
- <!-- End Navbar -->
  <br><br><br>
 
  <div class="content">
   <div class="container-fluid"> 
-  <div class="row"> 
-    <div class="col-md-6">
-      <div class="card">
-        <div class="card-header card-header-info">
-          <h4 class="card-title">Send Message</h4>
-          <p class="card-category">Allows user to send message to various group of users of this platform</p>
-        </div>
-        <div class="card-body">
-          <form [formGroup]="sendmessageform">
-            <div class="row">
-              <div class="col-md-6">
-                <div class="form-group">
-                  <label class="bmd-label-floating">Title</label>
-                  <input Style=" text-transform: uppercase;" type="text"  formControlName="title" class="form-control">
+    <div class="row">
+      <div class="col-md-3">
+
+      </div>
+      <div class="col-md-6">
+        <div class="card">
+          <div class="card-header card-header-info">
+            <h4 class="card-title">Send Message</h4>
+            <p class="card-category">Allows user to send message to various group of users of this platform</p>
+          </div>
+          <div class="card-body">
+            <form [formGroup]="sendmessageform">
+              <div class="row">
+                <div class="col-md-12">
+                  <div class="form-group">
+                    <label class="bmd-label-floating">Title</label>
+                    <input Style=" text-transform: uppercase;" type="text"  formControlName="title" class="form-control">
+                  </div>
                 </div>
+                
               </div>
-              
-            </div>
-            <div class="row">
-                <div class="col-md-7">
-                    <div class="form-group">      
-                      <div class="form-group">
-                        <label class="bmd-label-floating"> Type Message here</label>
-                        <textarea class="form-control"  formControlName="message" rows="5"></textarea>
+              <div class="row">
+                  <div class="col-md-12">
+                      <div class="form-group">      
+                        <div class="form-group">
+                          <label class="bmd-label-floating"> Type Message here</label>
+                          <textarea class="form-control"  formControlName="message" rows="5"></textarea>
+                        </div>
                       </div>
                     </div>
                   </div>
+              <div class="row">
+                <!-- <div class="col-md-5">
+                    <div class="form-group">
+                        <label class="bmd-label-floating" for="sel1">Select Channel:</label>
+                        <select class="form-control" formControlName="channel" id="sel1">
+                          <option>News</option>
+                          <option>Updates</option>
+                          <option>Techi</option>
+                          <option>System Updates</option>
+                        </select>
+                      </div>
+                </div> -->
+                
+                <div class="col-md-12">
+                    <div class="form-group">
+                        <label class="bmd-label-floating" for="sel1">Select Activity:</label>
+                        <select class="form-control"  formControlName="activity" id="sel1">
+                          <option>notifications</option>
+                        </select>
+                      </div>
                 </div>
-            <div class="row">
-              <div class="col-md-5">
-                  <div class="form-group">
-                      <label class="bmd-label-floating" for="sel1">Select Channel:</label>
-                      <select class="form-control" formControlName="channel" id="sel1">
-                        <option>News</option>
-                        <option>Updates</option>
-                        <option>Techi</option>
-                        <option>System Updates</option>
-                      </select>
-                    </div>
               </div>
-              
-              <div class="col-md-4">
-                  <div class="form-group">
-                      <label class="bmd-label-floating" for="sel1">Select Activity:</label>
-                      <select class="form-control"  formControlName="activity" id="sel1">
-                        <option>Activity 1</option>
-                        <option>Activity 2</option>
-                        <option>Activity 3</option>
-                        <option>Activity 4</option>
-                      </select>
-                    </div>
-              </div>
-            </div>
-          
-            <button type="submit" Style="border-radius:10px;" class="btn btn-info btn-lg pull-right" (click)="sendmessage()">Send Message</button>
-          </form>
+            
+              <button type="submit" Style="border-radius:10px;" class="btn btn-info btn-lg pull-right" (click)="sendmessage()">Send Message</button>
+            </form>
+          </div>
         </div>
       </div>
-    </div>
-  
-  </div>
+      <div class="col-md-3">
 
+      </div>
+    </div>
   </div>
-  </div>
+</div>
 
