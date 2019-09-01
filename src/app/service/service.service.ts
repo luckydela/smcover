@@ -172,6 +172,10 @@ return this.http.post(this.live_Url+'/vanguard/api/managers/get_stickers', JSON.
   }
   
 
+
+  getManagers(email:any){
+    return this.http.post(this.live_Url+'//vanguard/api/get_managers',JSON.stringify({email:email}), this.options)
+  }
 /*---------------------- Customer section from main adminstrator level---------------------------*/
 
 

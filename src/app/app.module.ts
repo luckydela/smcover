@@ -11,7 +11,7 @@ import { ChartService } from './service/chart.service';
 import { FooterComponent } from './footer/footer.component';
 import { ColorcodeComponent } from './colorcode/colorcode.component';
 import { SidenavComponent } from './sidenav/sidenav.component';
-import { NgxSpinnerService } from 'ngx-spinner';
+//import { NgxSpinnerService } from 'ngx-spinner';
 //import { SpinnerComponent } from './components/spinner/spinner.component';
 
 import { SpinnerComponent } from "./components/spinner/spinner.component";
@@ -62,6 +62,7 @@ import { ResetSuccessAppComponent } from './reset-success-app/reset-success-app.
     ExpiredLinkComponent,
 
     ResetSuccessAppComponent,
+
 
    
 

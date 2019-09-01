@@ -24,6 +24,7 @@
               <app-spinner *ngIf="loading" ></app-spinner>
             </div>
             <div class="chart">
+              <h4 *ngIf="month">{{ month }}</h4>
               <canvas id="performance"  width="400" height="120"></canvas>
             </div>
           </div>

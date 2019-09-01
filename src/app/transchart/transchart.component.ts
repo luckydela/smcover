@@ -20,6 +20,7 @@ export class TranschartComponent implements OnInit {
   loading:boolean = false;
   topperformstartdate:any;
   topperformenddate:any;
+  month:any;
   
   constructor(private service: ServiceService,private chartservice: ChartService) {
 
@@ -36,13 +37,15 @@ export class TranschartComponent implements OnInit {
     this.service.getweeklyAnaytics(this.ud.email).subscribe(data => {
       let labels = [],counts=[],amounts=[]; //declare empty arrays to accet labels, counts and amounts of the graph
       this.loading = false
+      console.log(data);
+      
         //loop through returned data and retrieve the agent_ids as labels, totalCount as counts data and totalAmount as amount data
         data['Weekly top performing agents '].forEach(element => {
           labels.push(element.agent_id);
           counts.push(element.totalCount);
           amounts.push(parseFloat(element.totalAmount.replace(/,/g,'')));
         });
-       
+      this.month = ''
       this.charts = this.chartservice.perfomanceChart(labels,amounts,'performance');     
 
 });
@@ -62,47 +65,27 @@ generatetopagraphformByDate(){
  
     this.service.getTopPerformingAgent({email:this.ud.email,minDate:this.topperformstartdate,maxDate:this.topperformenddate,duration:"months", role:this.ud.role})
       .subscribe(data => {
-        console.log(data);
         this.loading = false;
         if(data['responseCode'] === "000"){
-          if (data['responseData'] === null) return swal.fire({type:'error',title:'Ooops ...',text:'No records found for the selection'})
-
-
-
-          // this.charts = this.chartservice.perfomanceChart(labels,amounts,'performance');
-          this.topperformenddate = ''
-          this.topperformstartdate = ''
-        } else {
-          swal.fire({ 
-            type: 'error',
-            title: 'Ooops...',
-            text: data['responseMessage']
-          });
-        }
-        
-        // let labels = [],counts=[],amounts=[];
-        // data['Weekly top performing agents '].forEach(element => {
-        //   labels.push(element.agent_id);
-        //   counts.push(element.totalCount);
-        //   amounts.push(parseFloat(element.totalAmount.replace(/,/g,'')));
-        // });
-        // swal.fire({ 
-        //   type: 'success',
-        //   title: `GHC ${data['responseData'][0]['total']}`,
-        //   text: `Accrued amount from ${this.topperformstartdate} to ${this.topperformenddate}`
-        // });
-
-        // this.charts = this.chartservice.perfomanceChart(labels,amounts,'performance');
-
-
+          if (data['responseData'].length === 0) return swal.fire({type:'error',title:'Ooops ...',text:'No records found for the selection'})
+            let labels = [],month=[],amounts=[];
+            data['responseData'].forEach(element => {
+              labels.push(element.agent_id);
+              month.push(element.month);
+              amounts.push(parseFloat(element.total.replace(/,/g,'')));
+            });
+            this.month = month[0];
+            this.charts = this.chartservice.perfomanceChart(labels,amounts,'performance');
+            this.topperformenddate = ''
+            this.topperformstartdate = ''
+          } else {
+            swal.fire({type: 'error',title: 'Ooops...',text: data['responseMessage']});
+          }
       },error => {
         this.loading = false;
         swal.fire({ type: 'error',title: 'Oops...',text: error.message,footer: 'Please, make the necessary changes and try again.'});
       })
-    
   }
-  
 }
-
 }
 

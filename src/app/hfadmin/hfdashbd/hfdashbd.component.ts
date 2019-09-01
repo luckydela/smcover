@@ -136,7 +136,7 @@ perfomanceDetails(){
         .subscribe(data => {
           this.loading = false;
           this.periodchart = data['responseData'];
-          let labels = [],counts=[],amounts=[];
+          let labels = [],amounts=[];
           data['responseData'].forEach(element => {
             labels.push(element.date);
             amounts.push(parseFloat(element.total.replace(/,/g,'')));
